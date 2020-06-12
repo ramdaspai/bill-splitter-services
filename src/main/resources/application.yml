@@ -1,0 +1,14 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://appdev:GrnR65jQg9wFgBSi@cluster0-chclj.mongodb.net/billing
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info, health
+
+logging:
+  level:
+    org.springframework.data.mongodb.core.MongoTemplate: DEBUG
