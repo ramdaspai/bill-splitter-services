@@ -16,7 +16,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @CrossOrigin
 public class TransactionController {
 
-    private final Logger LOG = LoggerFactory.getLogger(TransactionController.class);
+    private final Logger log = LoggerFactory.getLogger(TransactionController.class);
 
     private TransactionService transactionService;
 
@@ -31,7 +31,7 @@ public class TransactionController {
 
     @PostMapping(path = "/api/expense/creation", produces = APPLICATION_JSON_VALUE, consumes = APPLICATION_JSON_VALUE)
     public void addExpense(@RequestBody Expense expense) {
-        LOG.info("Expense is: " + expense);
+        log.info("Expense is: " + expense);
         transactionService.addTransaction(expense);
     }
 

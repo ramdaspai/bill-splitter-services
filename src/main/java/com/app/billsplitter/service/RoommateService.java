@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class RoommateService {
 
-    private final Logger LOG = LoggerFactory.getLogger(RoommateService.class);
+    private final Logger log = LoggerFactory.getLogger(RoommateService.class);
 
     private RoommateRepository roommateRepository;
 
@@ -21,7 +21,7 @@ public class RoommateService {
 
 
     public List<Roommate> getAllRoommates() {
-        LOG.info("Roommate list is: " + roommateRepository.findAll());
+        log.info("Roommate list is: " + roommateRepository.findAll());
         return roommateRepository.findAll();
     }
 

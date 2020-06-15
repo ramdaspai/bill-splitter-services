@@ -29,13 +29,10 @@ public class RestExceptionHandler {
     @ExceptionHandler(value = {MongoWriteException.class})
     @ResponseStatus(INTERNAL_SERVER_ERROR)
     public ErrorResponse contactSearchException(MongoWriteException ex) {
-        LOGGER.error(String.valueOf(ex.getCode()));
-
         if (StringUtils.isNotEmpty(ex.getMessage())
                 && ex.getMessage().contains("E11000 duplicate key error")) {
             return new ErrorResponse(INTERNAL_SERVER_ERROR, "Duplicate user found. Phone numbers must be unique to a person.");
         }
-
         return new ErrorResponse(INTERNAL_SERVER_ERROR, ex.getLocalizedMessage());
     }
 }
